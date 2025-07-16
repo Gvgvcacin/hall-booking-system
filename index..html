@@ -43,19 +43,35 @@
 <div id="booking" class="page">
   <h2>Booking Form</h2>
   <form action="https://formsubmit.co/lakshayasrisivalingam05@gmail.com" method="POST">
-    <input name="date" type="date" required><br>
-    <input name="department" placeholder="Department" required><br>
-    <select name="hall" required>
-      <option value="">Select Hall</option>
-      <option>Main Hall</option>
-      <option>Auditorium</option>
-      <option>Seminar Room</option>
-    </select><br>
-    <input name="checkin" type="time" required>
-    <input name="checkout" type="time" required><br>
-    <button type="submit">Submit Booking</button>
-  </form>
-  <button onclick="show('home')">Back</button>
+  <input type="hidden" name="_captcha" value="false">
+
+  <input type="date" name="Date" required><br>
+
+  <select name="Department" required>
+    <option value="">Select Department</option>
+    <option value="Information Technology">Information Technology</option>
+    <option value="Computer Science">Computer Science</option>
+    <option value="Artificial Intelligence">Artificial Intelligence</option>
+    <option value="Mathematics">Mathematics</option>
+    <option value="Tamil">Tamil</option>
+    <option value="Economics">Economics</option>
+    <option value="B.Com">B.Com</option>
+    <option value="BCA">BCA</option>
+    <option value="B.Com(CA)">B.Com(CA)</option>
+  </select><br>
+
+  <select name="Hall" required>
+    <option value="">Select Hall</option>
+    <option value="Conference 1">Conference 1</option>
+    <option value="Conference 2">Conference 2</option>
+  </select><br>
+
+  <input type="time" name="Check-In" required>
+  <input type="time" name="Check-Out" required><br>
+
+  <button type="submit">Book Now</button>
+</form>
+
 </div>
 
 <script>
