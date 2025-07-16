@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hall Booking – Lakshaya</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align:center; background:#f9f9f9; padding:2rem; }
+    .page { display:none; }
+    .active { display:block; }
+    input, select, button { margin:0.5rem; padding:0.5rem; width:200px; }
+    .alert { margin-top:1rem; font-weight:bold; }
+  </style>
+</head>
+<body>
+
+<h1>Hall Booking</h1>
+
+<div id="home" class="page active">
+  <button onclick="show('register')">Register</button>
+  <button onclick="show('login')">Login</button>
+  <button onclick="show('booking')">Book Hall</button>
+</div>
+
+<div id="register" class="page">
+  <h2>Register</h2>
+  <input id="uname" placeholder="Username"><br>
+  <input id="upass" type="password" placeholder="Password"><br>
+  <button onclick="reg()">Register</button>
+  <button onclick="show('home')">Back</button>
+  <div id="areg" class="alert"></div>
+</div>
+
+<div id="login" class="page">
+  <h2>Login</h2>
+  <input id="luser" placeholder="Username"><br>
+  <input id="lpass" type="password" placeholder="Password"><br>
+  <button onclick="login()">Login</button>
+  <button onclick="show('home')">Back</button>
+  <div id="alog" class="alert"></div>
+</div>
+
+<div id="booking" class="page">
+  <h2>Booking Form</h2>
+  <form action="https://formsubmit.co/lakshayasrisivalingam05@gmail.com" method="POST">
+    <input name="date" type="date" required><br>
+    <input name="department" placeholder="Department" required><br>
+    <select name="hall" required>
+      <option value="">Select Hall</option>
+      <option>Main Hall</option>
+      <option>Auditorium</option>
+      <option>Seminar Room</option>
+    </select><br>
+    <input name="checkin" type="time" required>
+    <input name="checkout" type="time" required><br>
+    <button type="submit">Submit Booking</button>
+  </form>
+  <button onclick="show('home')">Back</button>
+</div>
+
+<script>
+function show(id){
+  ['home','register','login','booking'].forEach(i=>{
+    document.getElementById(i).classList.remove('active');
+  });
+  document.getElementById(id).classList.add('active');
+}
+function reg(){
+  const u = document.getElementById('uname').value.trim();
+  const p = document.getElementById('upass').value.trim();
+  const a = document.getElementById('areg');
+  if(!u||!p){
+    a.textContent = 'Fill all fields!'; a.style.color='red';
+  } else {
+    a.textContent = 'Registered!'; a.style.color='green';
+    show('home');
+  }
+}
+function login(){
+  const u = document.getElementById('luser').value.trim();
+  const p = document.getElementById('lpass').value.trim();
+  const a = document.getElementById('alog');
+  if(!u||!p){
+    a.textContent = 'Fill all fields!'; a.style.color='red';
+  } else {
+    a.textContent = 'Logged in!'; a.style.color='green';
+    show('booking');
+  }
+}
+</script>
+
+</body>
+</html>
